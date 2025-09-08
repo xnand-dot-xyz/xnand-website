@@ -1,0 +1,170 @@
+:root {
+  --light-bg: #fff;
+  --light-bg-alt: #eeeeee;
+  --light-text: #000;
+  --light-link-hover: #333;
+
+  --dark-bg: #1d1d1d;
+  --dark-bg-alt: #141414;
+  --dark-text: #eee;
+  --dark-link-hover: #ccc;
+
+  --bg: var(--light-bg);
+  --bg-alt: var(--light-bg-alt);
+  --text: var(--light-text);
+  --link-hover: var(--light-link-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark-bg);
+    --bg-alt: var(--dark-bg-alt);
+    --text: var(--dark-text);
+    --link-hover: var(--dark-link-hover);
+  }
+}
+
+::selection {
+  background-color: #a62f33;
+}
+
+a {
+  color: #a62f33;
+  font-weight: bold;
+}
+a:visited {
+  color: #711e21;
+}
+a:hover {
+  color: var(--link-hover);
+}
+a::selection {
+  color: var(--bg);
+}
+a:hover::selection {
+  color: var(--link-hover);
+}
+
+th > a:visited {
+  color: #a62f33;
+}
+th > a:hover {
+  color: var(--link-hover);
+}
+th > a::selection {
+  color: var(--bg);
+}
+th > a:hover::selection {
+  color: var(--link-hover);
+}
+
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+th {
+  border: none;
+}
+
+th, td {
+  padding: 0;
+  margin: 0;
+}
+
+th, tr:nth-child(2n) {
+  background-color: var(--bg-alt);
+}
+
+th, td:not(.link) {
+  max-width: 16vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Set full file name */
+td.link > a[title] {
+  font-size: 0;
+  text-decoration: none;
+}
+
+td.link > a[title]:before {
+  font-size: initial;
+  text-decoration: underline;
+  content: attr(title);
+
+  display: inline-block;
+  max-width: 68vw;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Centering */
+/* Horizontal Centering */
+h1 {
+  text-align: center;
+
+  max-width: 100vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#list {
+  margin-left: auto;
+  margin-right: auto;
+  width: initial !important;
+
+  border-color: var(--text);
+}
+
+th {
+  width: initial !important;
+}
+
+/* Vertical Centering */
+html {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* Removes the top padding of the first element and the bottom padding of the last, to reduce the offset */
+body > *:first-child {
+  margin-top: 0;
+}
+body > *:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  #list {
+    border: none;
+    margin: 0;
+    right: 0;
+  }
+
+  th, td:not(.link) {
+    width: 20vw;
+    max-width: 20vw;
+  }
+  td.date {
+    width: 33vw;
+    max-width: 33vw;
+  }
+  td.link > a[title]:before {
+    width: 50vw;
+    max-width: 50vw;
+  }
+}

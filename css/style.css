@@ -1,0 +1,167 @@
+/* Initial variables */
+:root {
+  --light-bg: #fff;
+  --light-text: #000;
+  --light-link-hover: #333;
+
+  --dark-bg: #1d1d1d;
+  --dark-text: #eee;
+  --dark-link-hover: #ccc;
+
+  --bg: var(--light-bg);
+  --text: var(--light-text);
+  --link-hover: var(--light-link-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark-bg);
+    --text: var(--dark-text);
+    --link-hover: var(--dark-link-hover);
+  }
+}
+
+:root:has(#color-mode:checked ~ *) {
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --link-hover: var(--dark-link-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:has(#color-mode:checked ~ *) {
+    --bg: var(--light-bg);
+    --text: var(--light-text);
+    --link-hover: var(--light-link-hover);
+  }
+}
+
+/* Scrollbar */
+:root {
+  scrollbar-color: var(--link-hover) var(--bg);
+}
+
+::selection {
+  background-color: #a62f33;
+}
+
+/* Links */
+a {
+  color: #a62f33;
+  font-weight: bold;
+}
+a:visited {
+  color: #711e21;
+}
+a:hover {
+  color: var(--link-hover);
+}
+a::selection {
+  color: var(--bg);
+}
+a:hover::selection {
+  color: var(--link-hover);
+}
+
+/* The theme toggle button */
+input[type = checkbox]#color-mode {
+  position: absolute;
+  left: -999vw;
+}
+
+#color-mode + label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5%;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#color-mode + label::after {
+  content: "🌙";
+  background: var(--dark-bg);
+
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25%;
+
+  outline-style: solid;
+  outline-color: transparent;
+}
+#color-mode:checked + label::after {
+  content: "☀️";
+  background: var(--light-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  #color-mode + label::after {
+    content: "☀️";
+  background: var(--light-bg);
+  }
+  #color-mode:checked + label::after {
+    content: "🌙";
+  background: var(--dark-bg);
+  }
+}
+
+#color-mode:focus + label::after {
+  outline: medium auto currentColor;
+  outline: medium auto invert;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+#color-mode:focus:not(:focus-visible) + label::after {
+  outline:none !important;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Other */
+.weak {
+  font-weight: lighter;
+}
+
+/* Centering */
+/* Horizontal Centering */
+body {
+  text-align: center;
+}
+
+/* Fix list alignment */
+ul {
+  display: inline-block;
+  text-align: left;
+}
+
+/* Vertical Centering */
+.middle-centering-div {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.inner-centering-div {
+  display: table-cell;
+  vertical-align: middle;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+}
+
+/* Removes the top padding of the first element and the bottom padding of the last, to reduce the offset */
+.inner-centering-div > *:first-child {
+  margin-top: 0;
+}
+.inner-centering-div > *:last-child {
+  margin-bottom: 0;
+}

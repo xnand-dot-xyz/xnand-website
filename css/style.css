@@ -1,37 +1,61 @@
 /* Initial variables */
 :root {
   --light-bg: #fff;
+  --light-bg-alt: #f3f3f3;
   --light-text: #000;
   --light-link-hover: #333;
+  --light-border: #d7d7d7;
+  --light-link: #c44145;
+  --light-link-visited: #8f2f32;
 
   --dark-bg: #1d1d1d;
+  --dark-bg-alt: #111;
   --dark-text: #eee;
   --dark-link-hover: #ccc;
+  --dark-border: #2d2d2d;
+  --dark-link: #a62f33;
+  --dark-link-visited: #711e21;
 
   --bg: var(--light-bg);
+  --bg-alt: var(--light-bg-alt);
   --text: var(--light-text);
   --link-hover: var(--light-link-hover);
+  --border: var(--light-border);
+  --link: var(--light-link);
+  --link-visited: var(--light-link-visited);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: var(--dark-bg);
+    --bg-alt: var(--dark-bg-alt);
     --text: var(--dark-text);
     --link-hover: var(--dark-link-hover);
+    --border: var(--dark-border);
+    --link: var(--dark-link);
+    --link-visited: var(--dark-link-visited);
   }
 }
 
 :root:has(#color-mode:checked ~ *) {
   --bg: var(--dark-bg);
+  --bg-alt: var(--dark-bg-alt);
   --text: var(--dark-text);
   --link-hover: var(--dark-link-hover);
+  --border: var(--dark-border);
+  --link: var(--dark-link);
+  --link-visited: var(--dark-link-visited);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:has(#color-mode:checked ~ *) {
     --bg: var(--light-bg);
+    --bg-alt: var(--light-bg-alt);
     --text: var(--light-text);
     --link-hover: var(--light-link-hover);
+    --border: var(--light-border);
+    --link: var(--light-link);
+    --link-visited: var(--light-link-visited);
   }
 }
 
@@ -41,16 +65,16 @@
 }
 
 ::selection {
-  background-color: #a62f33;
+  background-color: var(--link);
 }
 
 /* Links */
 a {
-  color: #a62f33;
+  color: var(--link);
   font-weight: bold;
 }
 a:visited {
-  color: #711e21;
+  color: var(--link-visited);
 }
 a:hover {
   color: var(--link-hover);
@@ -136,6 +160,19 @@ body {
 ul {
   display: inline-block;
   text-align: left;
+}
+
+/* Instance list formatting */
+.instance-list {
+  list-style-type: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 16px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--border);
+  background-color: var(--bg-alt);
+  font-size: 1.1rem;
 }
 
 /* Vertical Centering */

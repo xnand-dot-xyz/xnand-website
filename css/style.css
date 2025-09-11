@@ -207,3 +207,25 @@ ul {
 .inner-centering-div > *:last-child {
   margin-bottom: 0;
 }
+
+/* Hack to hide specifically the dash in the title */
+h1 > p {
+  display: inline;
+}
+
+/* Adaptive media queries */
+@media (max-width: 36.5rem) {
+  h1 > *:nth-child(2){
+    display: none;
+  }
+  h1 > dfn {
+    display: block;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 20rem) {
+  h1 > *:nth-child(3) {
+    display: none;
+  }
+}

@@ -113,7 +113,6 @@ input[type = checkbox]#color-mode {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 25%;
 
   outline-style: solid;
   outline-color: transparent;

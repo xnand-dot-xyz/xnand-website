@@ -168,9 +168,8 @@ ul {
 }
 
 /* Instance list formatting */
-.instance-list {
-  margin-top: 0px;
-  margin-bottom: 0px;
+.section {
+  margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
@@ -182,7 +181,12 @@ ul {
   font-size: 1.1rem;
 }
 
-.instance-list > h2 {
+.instance-list {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.section > h2 {
   margin-top: 0;
 }
 
@@ -255,6 +259,7 @@ h1 > p {
     width: auto;
     padding-left: 0;
     padding-right: 0;
+    border-style: solid none;
   }
 
   .instance-list table {
